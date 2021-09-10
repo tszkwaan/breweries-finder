@@ -1,5 +1,7 @@
 <template>
     <v-toolbar
+      app
+      class="flex-grow-0"
       color="white"
       flat
     >
@@ -14,24 +16,28 @@
         />
       </v-toolbar-title>
 
-      <v-toolbar-items>
-        <v-btn
-          text>
-          <router-link
+      <v-toolbar-items
+        :key="list">
+        <router-link
           :to="{ name: 'list' }">
+          <v-btn
+            x-large
+            text>
             All breweries
-          </router-link>
         </v-btn>
+        </router-link>
       </v-toolbar-items>
 
-      <v-toolbar-items>
-        <v-btn
-          text>
-          <router-link
-            :to="{ name: 'save' }">
+      <v-toolbar-items
+        :key="save">
+        <router-link
+          :to="{ name: 'save' }">
+          <v-btn
+            x-large
+            text>
             Saved breweries
-          </router-link>
         </v-btn>
+        </router-link>
       </v-toolbar-items>
 
       <!-- <v-btn
@@ -60,8 +66,12 @@
     height: 64px;
   }
 
-  header a {
+  a {
     color: #4c4c4c;
     text-decoration: none;
+  }
+
+  .v-btn:not(.v-btn--round).v-size--x-large {
+    height: 100%;
   }
 </style>

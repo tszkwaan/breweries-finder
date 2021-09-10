@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-const List = () => import('./views/List.vue')
-const Save = () => import('./views/Save.vue')
+import List from './views/List.vue'
+import Save from './views/Save.vue'
 
 Vue.use(Router)
 
