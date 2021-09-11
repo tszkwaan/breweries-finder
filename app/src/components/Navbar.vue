@@ -14,17 +14,6 @@
         />
       </v-toolbar-title>
 
-      <v-toolbar-items>
-        <router-link
-          :to="{ name: 'list' }">
-          <v-btn
-            x-large
-            text>
-            Breweries list
-        </v-btn>
-        </router-link>
-      </v-toolbar-items>
-
       <!-- <v-toolbar-items
         :key="save">
         <router-link
