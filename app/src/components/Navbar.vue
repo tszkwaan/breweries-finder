@@ -14,8 +14,7 @@
         />
       </v-toolbar-title>
 
-      <v-toolbar-items
-        :key="list">
+      <v-toolbar-items>
         <router-link
           :to="{ name: 'list' }">
           <v-btn

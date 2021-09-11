@@ -35,7 +35,7 @@
         },
         methods: {
             getImageIndex() {
-                return (this.page % 2 === 0) ? this.index += 8 : this.index
+                return (this.page % 2 === 0) ? this.index + 8 : this.index
             }
         }
     }

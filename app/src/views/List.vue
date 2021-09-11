@@ -4,7 +4,11 @@
         <h1>The Breweries</h1>
     </section>
     <section class="section-filters">
-        filters
+        <row-filters
+            ref="row-filters"
+            :size-prop="size"
+            @updateSize="updateSize">
+        </row-filters>
     </section>
     <section class="section-list">
         <list-breweries 
@@ -24,6 +28,7 @@
 import Vue from 'vue'
 import ListBreweries from '@/components/ListBreweries.vue'
 import Pagination from '@/components/Pagination.vue'
+import RowFilters from '@/components/RowFilters.vue'
 
 import ApiBreweries from '@/api/breweries.js'
 
@@ -31,13 +36,18 @@ export default {
   name: 'list',
   components: {
     ListBreweries,
-    Pagination
+    Pagination,
+    RowFilters
   },
   data() {
     return {
       breweries: [],
-      size: 12,
-      page: 1
+      pageSize: 12,
+      page: 1,
+      size: {
+        size: "All",
+        value: ""
+      }
     }
   },
   mounted() {
@@ -45,13 +55,20 @@ export default {
   },
   methods: {
     async getBreweriesList() {
-      this.breweries = await ApiBreweries.getBreweriesList(this.page, this.size)
-      // Vue.set(this.breweries, breweries)
+      this.breweries = await ApiBreweries.getBreweriesList(this.page, this.pageSize, this.size.value)
     },
     async updateCurrentPage(newVal) {
       this.page = newVal
       await this.getBreweriesList()
       window.scrollTo(0,0)
+    },
+    async updateSize(newVal) {
+        if (newVal && newVal.value !== this.size.value) {
+            Vue.set(this.size, 'size', newVal.size)
+            Vue.set(this.size, 'value', newVal.value)
+            await this.getBreweriesList()
+            this.page = 1
+        }
     }
   }
 }
