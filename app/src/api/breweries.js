@@ -7,6 +7,7 @@ const getBreweriesList = async () => {
     let url = `${apiEndpoint}?per_page=9`
     console.log('in url: ' + url)
     const result = await axios.get(url)
+    console.log(result)
     return result.data
   } catch (err) {
     console.log(err)
