@@ -1,8 +1,11 @@
 <template>
+  <v-card
+    color="#a2a2a2"
+    flat
+    height="66px"
+    tile>
     <v-toolbar
-      app
       class="flex-grow-0"
-      color="white"
       flat
     >
       
@@ -23,12 +26,12 @@
           <v-btn
             x-large
             text>
-            All breweries
+            Breweries list
         </v-btn>
         </router-link>
       </v-toolbar-items>
 
-      <v-toolbar-items
+      <!-- <v-toolbar-items
         :key="save">
         <router-link
           :to="{ name: 'save' }">
@@ -38,7 +41,7 @@
             Saved breweries
         </v-btn>
         </router-link>
-      </v-toolbar-items>
+      </v-toolbar-items> -->
 
       <!-- <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -49,6 +52,8 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn> -->
     </v-toolbar>
+  </v-card>
+    
 
 </template>
 
@@ -59,11 +64,14 @@
 </script>
 
 <style lang="scss" scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500&display=swap');
-
+  
   header {
     font-family: 'Raleway', sans-serif;
     height: 64px;
+  }
+
+  .v-toolbar__content {
+    border-bottom: 1px solid #4c4c4c;
   }
 
   a {
