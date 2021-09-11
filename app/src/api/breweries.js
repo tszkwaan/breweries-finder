@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const apiEndpoint = 'https://api.openbrewerydb.org/breweries'
 
-const getBreweriesList = async (page, size = 9) => {
+const getBreweriesList = async (page, size) => {
   try {
     let url = `${apiEndpoint}?page=${page}&per_page=${size}`
     console.log('in url: ' + url)

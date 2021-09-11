@@ -7,7 +7,9 @@
         filters
     </section>
     <section class="section-list">
-        <list-breweries :breweries="breweries" />
+        <list-breweries 
+          :breweries="breweries"
+          :page="page" />
     </section>
     <section class="section-pagination">
         <pagination
@@ -34,7 +36,7 @@ export default {
   data() {
     return {
       breweries: [],
-      size: 9,
+      size: 12,
       page: 1
     }
   },

@@ -2,7 +2,7 @@
     <div class="preview">
         <v-card>
             <img 
-                :src="require(`@/static/img/breweries/brewery${index}.jpg`)"
+                :src="require(`@/static/img/breweries/brewery${getImageIndex()}.jpg`)"
                 alt="photo of the brewery"/>
             <div class="row-name">
                 {{ brewery.name }}
@@ -27,6 +27,15 @@
             },
             index: {
                 type: Number
+            },
+            page: {
+                type: Number,
+                default: 1
+            }
+        },
+        methods: {
+            getImageIndex() {
+                return (this.page % 2 === 0) ? this.index += 8 : this.index
             }
         }
     }
@@ -36,6 +45,7 @@
   
   .preview {
       margin: 10px;
+      max-width: 400px;
 
       &:hover {
           cursor: pointer;
