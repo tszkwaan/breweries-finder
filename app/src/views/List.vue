@@ -10,25 +10,32 @@
         <list-breweries :breweries="breweries" />
     </section>
     <section class="section-pagination">
-        pagination
+        <pagination
+          ref="pagination"
+          :current-prop="page"
+          @update="updateCurrentPage"/>
     </section>
   </section>
 </template>
 
 <script>
-// @ is an alias to /src
+import Vue from 'vue'
 import ListBreweries from '@/components/ListBreweries.vue'
+import Pagination from '@/components/Pagination.vue'
+
 import ApiBreweries from '@/api/breweries.js'
 
 export default {
   name: 'list',
   components: {
-    ListBreweries
+    ListBreweries,
+    Pagination
   },
   data() {
     return {
       breweries: [],
-      size: 9
+      size: 9,
+      page: 1
     }
   },
   mounted() {
@@ -36,9 +43,13 @@ export default {
   },
   methods: {
     async getBreweriesList() {
-      console.log('in getBreweriesList')
-      this.breweries = await ApiBreweries.getBreweriesList();
-      console.log(this.breweries)
+      this.breweries = await ApiBreweries.getBreweriesList(this.page, this.size)
+      // Vue.set(this.breweries, breweries)
+    },
+    async updateCurrentPage(newVal) {
+      this.page = newVal
+      await this.getBreweriesList()
+      window.scrollTo(0,0)
     }
   }
 }
@@ -56,5 +67,9 @@ export default {
         text-transform: uppercase;
         font-family: 'Noto Serif SC', serif;
         font-size: 2.5rem;
+    }
+    .section-list,
+    .section-pagination {
+      margin-bottom: 20px;
     }
 </style>

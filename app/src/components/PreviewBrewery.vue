@@ -9,7 +9,9 @@
             </div>
             <div class="row-state">
                 <div class='state-text'>
-                    {{ brewery.state }}
+                    {{ brewery.state }} 
+                    <span v-if="brewery.state && brewery.city">,</span>
+                    {{ brewery.city }}
                 </div>
             </div>
         </v-card>
@@ -50,6 +52,7 @@
     font-family: 'Noto Serif SC', serif;
     padding-bottom: 10px;
     margin: 10px 0;
+    max-width: 500px;
   }
 
   .row-state {
