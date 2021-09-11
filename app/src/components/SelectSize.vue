@@ -6,7 +6,8 @@
     item-value="value"
     persistent-hint
     label="Size"
-    return-object>
+    return-object
+    color="rgba(0, 0, 0, 0.87)">
   </v-select>
 </template>
 
