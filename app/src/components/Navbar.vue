@@ -1,9 +1,4 @@
 <template>
-  <v-card
-    color="#a2a2a2"
-    flat
-    height="66px"
-    tile>
     <v-toolbar
       class="flex-grow-0"
       flat
@@ -52,9 +47,6 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn> -->
     </v-toolbar>
-  </v-card>
-    
-
 </template>
 
 <script>
@@ -82,4 +74,5 @@
   .v-btn:not(.v-btn--round).v-size--x-large {
     height: 100%;
   }
+
 </style>
