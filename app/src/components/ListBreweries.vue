@@ -5,8 +5,7 @@
             :key="brewery.id"
             :brewery="brewery"
             :index="index"
-            :page="page"
-            @click="showDetail">
+            :page="page">
         </preview-brewery>
     </div>
 </template>
@@ -30,9 +29,6 @@ import PreviewBrewery from '@/components/PreviewBrewery.vue'
             }
         },
         methods: {
-            showDetail(action, brewery) {
-
-            }
         }
     }
 </script>

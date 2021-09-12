@@ -1,5 +1,5 @@
 <template>
-    <div class="preview">
+    <div class="preview" @click="clickBrewery">
         <v-card>
             <img 
                 :src="require(`@/static/img/breweries/brewery${getImageIndex()}.jpg`)"
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex'
+
     export default {
         name: 'PreviewBrewery',
         props: {
@@ -36,7 +38,13 @@
         methods: {
             getImageIndex() {
                 return (this.page % 2 === 0) ? this.index + 8 : this.index
-            }
+            },
+            clickBrewery() {
+                let formattedBrewery = {...this.brewery, imageIndex: this.getImageIndex()}
+                console.log(this.$store.state)
+                // this.$store.commit('breweries/showDetailDialog', formattedBrewery)
+            },
+            ...mapMutations['breweries']
         }
     }
 </script>

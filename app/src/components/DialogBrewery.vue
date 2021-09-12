@@ -1,34 +1,33 @@
 <template>
-  <v-dialog v-model="isShow" width="500">
+  <v-dialog v-model="breweries.isShowDetailDialog" width="500">
     <v-card>
-      <v-btn color="primary" text @click="dialog = false">I accept</v-btn>
+      <v-btn color="primary" text @click="breweries.closeDetailDialog">X</v-btn>
       <v-divider></v-divider>
 
       <v-card-text>
-          {{ JSON.stringify(brewery) }}
+          {{ JSON.stringify(breweries.brewery) }}
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
+import Vue from 'vue'
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   name: "DialogBrewery",
   props: {
-      brewery: {
-          type: Object
-      }
   },
   data() {
     return {
-        isShow: false
     };
   },
-  computed: {},
+  computed: {
+      ...mapState(['breweries'])
+  },
   methods: {
-      showDialog() {
-          this.isShow = true
-      }
+      ...mapMutations['breweries']
   }
 };
 </script>

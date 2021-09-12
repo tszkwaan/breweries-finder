@@ -21,6 +21,8 @@
           :current-prop="page"
           @update="updateCurrentPage"/>
     </section>
+    <dialog-brewery>
+    </dialog-brewery>
   </section>
 </template>
 
@@ -29,6 +31,7 @@ import Vue from 'vue'
 import ListBreweries from '@/components/ListBreweries.vue'
 import Pagination from '@/components/Pagination.vue'
 import RowFilters from '@/components/RowFilters.vue'
+import DialogBrewery from '@/components/DialogBrewery.vue'
 
 import ApiBreweries from '@/api/breweries.js'
 
@@ -37,7 +40,8 @@ export default {
   components: {
     ListBreweries,
     Pagination,
-    RowFilters
+    RowFilters,
+    DialogBrewery
   },
   data() {
     return {
