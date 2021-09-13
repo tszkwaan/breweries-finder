@@ -1,6 +1,4 @@
-// import { createLocalVue } from '@vue/test-utils'
-// import Vuex from 'vuex'
-import { cloneDeep, isEmpty, isEqual } from 'lodash'
+import { isEqual } from 'lodash'
 import storeBreweries from '@/store/breweries'
 import dataBrewery from '../../mock/brewery.json'
 import { expect } from 'chai'
