@@ -3,9 +3,7 @@
         <preview-brewery
             v-for="brewery, index in breweries"
             :key="brewery.id"
-            :brewery="brewery"
-            :index="index"
-            :page="page">
+            :brewery="brewery">
         </preview-brewery>
     </div>
 </template>
@@ -22,10 +20,6 @@ import PreviewBrewery from '@/components/PreviewBrewery.vue'
             breweries: {
                 type: Array,
                 default: () => []
-            },
-            page: {
-                type: Number,
-                default: 1
             }
         },
         methods: {

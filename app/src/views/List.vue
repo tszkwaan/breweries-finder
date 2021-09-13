@@ -12,8 +12,7 @@
     </section>
     <section class="section-list">
         <list-breweries 
-          :breweries="breweries"
-          :page="page" />
+          :breweries="breweries"/>
     </section>
     <section class="section-pagination">
         <pagination
@@ -59,7 +58,12 @@ export default {
   },
   methods: {
     async getBreweriesList() {
-      this.breweries = await ApiBreweries.getBreweriesList(this.page, this.pageSize, this.size.value)
+      this.breweries = await ApiBreweries.getBreweriesList(this.page, this.pageSize, this.size.value).then(breweries => {
+          for (let [index, value] of breweries.entries()) {
+              value.imageIndex = this.getImageIndex(index)
+          }
+          return breweries
+      })
     },
     async updateCurrentPage(newVal) {
       this.page = newVal
@@ -73,6 +77,11 @@ export default {
             await this.getBreweriesList()
             this.page = 1
         }
+    },
+    getImageIndex(index) {
+        const PLACEHOLDER = 8;
+        const IMAGE_SETS = 2;
+        return (this.page % IMAGE_SETS === 0) ? index + PLACEHOLDER : index
     }
   }
 }

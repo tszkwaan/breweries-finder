@@ -2,7 +2,7 @@
     <div class="preview" @click="clickBrewery">
         <v-card>
             <img 
-                :src="require(`@/static/img/breweries/brewery${getImageIndex()}.jpg`)"
+                :src="require(`@/static/img/breweries/brewery${brewery.imageIndex}.jpg`)"
                 alt="photo of the brewery"/>
             <div class="row-name">
                 {{ brewery.name }}
@@ -26,24 +26,11 @@
         props: {
             brewery: {
                 type: Object
-            },
-            index: {
-                type: Number
-            },
-            page: {
-                type: Number,
-                default: 1
             }
         },
         methods: {
-            getImageIndex() {
-                const PLACEHOLDER = 8;
-                const IMAGE_SETS = 2;
-                return (this.page % IMAGE_SETS === 0) ? this.index + PLACEHOLDER : this.index
-            },
             clickBrewery() {
-                let formattedBrewery = {...this.brewery, imageIndex: this.getImageIndex()}
-                // this.$store.commit('breweries/showDetailDialog', formattedBrewery)
+                this.$store.commit('breweries/showDetailDialog', this.brewery)
             },
             ...mapMutations['breweries']
         }
@@ -57,7 +44,7 @@
       max-width: 400px;
 
       &:hover {
-        //   cursor: pointer;
+          cursor: pointer;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
       }
   }
