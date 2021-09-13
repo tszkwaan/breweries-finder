@@ -21,3 +21,4 @@ yarn-error.log*
 *.sw?
 
 deploy.sh
+map_key.txt

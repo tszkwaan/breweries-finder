@@ -1,12 +1,7 @@
 <template>
     <div class="preview" @click="clickBrewery">
         <v-card>
-            <img 
-                :src="require(`@/static/img/breweries/brewery${brewery.imageIndex}.jpg`)"
-                alt="photo of the brewery"/>
-            <div class="row-name">
-                {{ brewery.name }}
-            </div>
+           <card-brewery :brewery="brewery"></card-brewery>
             <div class="row-state">
                 <div class='state-text'>
                     {{ brewery.state }} 
@@ -20,9 +15,13 @@
 
 <script>
     import { mapMutations } from 'vuex'
+    import CardBrewery from '@/components/CardBrewery.vue'
 
     export default {
         name: 'PreviewBrewery',
+        components: {
+            CardBrewery
+        },
         props: {
             brewery: {
                 type: Object
@@ -53,13 +52,7 @@
         height: 100%;
     }
 
-  .row-name {
-    font-size: 1.5rem;
-    font-family: 'Noto Serif SC', serif;
-    padding-bottom: 10px;
-    margin: 10px 0;
-    max-width: 500px;
-  }
+
 
   .row-state {
     text-align: left;
@@ -71,11 +64,6 @@
   .state-text {
       position: absolute;
       bottom: 0;
-  }
-
-  img {
-    width: 100%;
-    aspect-ratio: 5 / 3;
   }
 
 </style>
