@@ -37,11 +37,12 @@
         },
         methods: {
             getImageIndex() {
-                return (this.page % 2 === 0) ? this.index + 8 : this.index
+                const PLACEHOLDER = 8;
+                const IMAGE_SETS = 2;
+                return (this.page % IMAGE_SETS === 0) ? this.index + PLACEHOLDER : this.index
             },
             clickBrewery() {
                 let formattedBrewery = {...this.brewery, imageIndex: this.getImageIndex()}
-                console.log(this.$store.state)
                 // this.$store.commit('breweries/showDetailDialog', formattedBrewery)
             },
             ...mapMutations['breweries']
