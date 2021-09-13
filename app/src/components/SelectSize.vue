@@ -12,6 +12,8 @@
 </template>
 
 <script setup>
+import dataBrewerySize from '@/data/brewery-size.json'
+
 export default {
   name: "select-size",
   components: {},
@@ -22,48 +24,7 @@ export default {
   },
   data() {
     return {
-      options: [
-        {
-          size: "All",
-          value: ""
-        },
-        {
-          size: "Micro",
-          value: "micro"
-        },
-        {
-          size: "Regional",
-          value: "regional"
-        },
-        {
-          size: "Brewpub",
-          value: "brewpub"
-        },
-        {
-          size: "Large",
-          value: "large"
-        },
-        {
-          size: "Planning",
-          value: "planning"
-        },
-        {
-          size: "Bar",
-          value: "bar"
-        },
-        {
-          size: "Contract",
-          value: "contract"
-        },
-        {
-          size: "Proprietor",
-          value: "proprietor"
-        },
-        {
-          size: "Closed",
-          value: "closed"
-        }
-      ]
+      options: dataBrewerySize
     };
   },
   mounted() {},
@@ -74,12 +35,7 @@ export default {
             return this.sizeProp
         },
         set: function(newVal) {
-            console.log('in inner emit:')
-            console.log(newVal)
             this.$emit('update', newVal)
-            // if (!oldVal || (newVal && newVal.value !== oldVal.value)) {
-                
-            // }
         }
     }
   }
