@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="breweries.isShowDetailDialog" max-width="1000">
-    <v-card min-height="500">
+    <v-card>
     <v-card-title>
         <div class="title-contact">
             {{ breweries.brewery.name }}
