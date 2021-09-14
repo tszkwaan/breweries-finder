@@ -4,7 +4,7 @@
 
 A website listing breweries all around the world. Users can view the contact information of the brewery and bookmark their interested breweries.
 
-Website URL: <a href="https://breweries-factory-4t632vft6q-as.a.run.app/" target="_blank">https://breweries-factory-4t632vft6q-as.a.run.app/</a>
+<a href="https://breweries-factory-4t632vft6q-as.a.run.app/" target="_blank">Live Demo Website</a>
 
 Status: WIP
 
