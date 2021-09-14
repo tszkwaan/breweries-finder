@@ -5,11 +5,11 @@
         <div class="title-contact">
             {{ breweries.brewery.name }}
         </div>
-        <v-btn
+        <!-- <v-btn
             class="btn-close"
             outlined>
             <font-awesome-icon :icon="['fas', 'times']" />
-        </v-btn>
+        </v-btn> -->
     </v-card-title>
     <v-divider color=""></v-divider>
         <div class="container">
